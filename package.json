@@ -10,6 +10,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-regular-svg-icons": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-native-fontawesome": "^0.3.0",
     "@zegocloud/zego-uikit-prebuilt-video-conference-rn": "^1.1.0",
     "@zegocloud/zego-uikit-rn": "^2.2.0",
     "native-base": "^3.4.28",

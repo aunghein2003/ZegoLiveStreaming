@@ -23,11 +23,11 @@ const App: NavigationFunctionComponent<AppProps> = ({componentId}) => {
     setUserId(String(Math.floor(Math.random() * 10000)));
   }, []);
 
-  const joinOrCreateMeeting = (conf_id: string) => {
+  const joinOrCreateMeeting = () => {
     console.log({
       userId: userId,
       username: username,
-      conferenceId: conf_id,
+      conferenceId: conferenceID,
     });
 
     Navigation.push(componentId, {
@@ -36,7 +36,7 @@ const App: NavigationFunctionComponent<AppProps> = ({componentId}) => {
         passProps: {
           userId: userId,
           username: username,
-          conferenceId: conf_id,
+          conferenceId: conferenceID,
         },
       },
     });
@@ -79,25 +79,56 @@ const App: NavigationFunctionComponent<AppProps> = ({componentId}) => {
                 : 'blue.600'
             }
             onPress={() => {
-              joinOrCreateMeeting(conferenceID);
+              joinOrCreateMeeting();
             }}>
             Join a meeting
           </Button>
-          {/* <Center my={'3'}>
-            <Text fontSize={'md'} color={'coolGray.500'}>
-              - - - - - - - - - - OR- - - - - - - - - -
-            </Text>
-          </Center>
-
           <Button
-            disabled={username.length === 0}
-            bg={username.length === 0 ? 'blue.400' : 'blue.600'}
             rounded={'md'}
-            onPress={() =>
-              joinOrCreateMeeting(String(Math.floor(Math.random() * 10000)))
-            }>
-            Start a conference
-          </Button> */}
+            mt={3}
+            disabled={conferenceID.length === 0 || username.length === 0}
+            bg={
+              conferenceID.length === 0 || username.length === 0
+                ? 'blue.400'
+                : 'blue.600'
+            }
+            onPress={() => {
+              Navigation.push(componentId, {
+                component: {
+                  name: 'VideoConferenceTwo',
+                  passProps: {
+                    userId: userId,
+                    username: username,
+                    conferenceId: conferenceID,
+                  },
+                },
+              });
+            }}>
+            Join a meeting 2
+          </Button>
+          <Button
+            rounded={'md'}
+            mt={3}
+            disabled={conferenceID.length === 0 || username.length === 0}
+            bg={
+              conferenceID.length === 0 || username.length === 0
+                ? 'blue.400'
+                : 'blue.600'
+            }
+            onPress={() => {
+              Navigation.push(componentId, {
+                component: {
+                  name: 'CustomizedConference',
+                  passProps: {
+                    userId: userId,
+                    username: username,
+                    conferenceId: conferenceID,
+                  },
+                },
+              });
+            }}>
+            Join Customized Meeting
+          </Button>
         </VStack>
       </Box>
     </NativeBaseProvider>
