@@ -1,5 +1,5 @@
 export const profile = {
-  appID: 1912418570,
-  appSign: '358f2fafc90618d96d00a480b743b39e546105353df335ed03a49c4845f92e87',
+  appID: 17291147,
+  appSign: '92189d0576de894dc09c017d0567add26d5d0b7d4e3b7f5e55380b2ca810ac86',
   scenario: 0,
 };
